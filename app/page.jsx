@@ -229,7 +229,7 @@ For each mix concept provide:
 Respond ONLY with a valid JSON array. No markdown, no backticks, no preamble.`;
     try {
       const raw = await callAPI({
-        model: "claude-sonnet-4-6-sonnet-4-20250514",
+        model: "claude-sonnet-4-6",
         max_tokens: 1000,
         messages: [{ role: "user", content: prompt }],
       });
@@ -278,7 +278,7 @@ Best posting days for music: Thursday–Sunday. Vary times strategically.
 ONLY valid JSON. No markdown, no backticks.`;
     try {
       const raw = await callAPI({
-        model: "claude-sonnet-4-6-sonnet-4-20250514",
+        model: "claude-sonnet-4-6",
         max_tokens: 1000,
         messages: [{ role: "user", content: prompt }],
       });
