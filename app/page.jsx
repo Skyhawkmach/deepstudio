@@ -230,7 +230,7 @@ Respond ONLY with a valid JSON array. No markdown, no backticks, no preamble.`;
     try {
       const raw = await callAPI({
         model: "claude-sonnet-4-6",
-        max_tokens: 1000,
+        max_tokens: 4000,
         messages: [{ role: "user", content: prompt }],
       });
       const cleaned = raw
