@@ -233,7 +233,12 @@ Respond ONLY with a valid JSON array. No markdown, no backticks, no preamble.`;
         max_tokens: 1000,
         messages: [{ role: "user", content: prompt }],
       });
-      setMixes(JSON.parse(raw.replace(/```json|```/g, "").trim()));
+      const cleaned = raw
+  .replace(/```json|```/g, "")
+  .trim();
+const jsonMatch = cleaned.match(/\[[\s\S]*\]/);
+if (!jsonMatch) throw new Error("No JSON array found");
+setMixes(JSON.parse(jsonMatch[0]));
     } catch (e) {
       setMixesErr(e.message || "Generation failed — please try again.");
     } finally {
